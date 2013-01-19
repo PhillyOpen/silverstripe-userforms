@@ -641,7 +641,7 @@ JS
 
 							// Register conditional behaviour with an element, so it can be triggered from many places.
 							$rules .= $fieldToWatch.".each(function() {
-								$(this).data('userformConditions', function() {
+								$(this).data('userformConditions".$fieldId."', function() {
 									if(". $expression ." ) {
 										$(\"#". $fieldId ."\").".$view."();
 									}
@@ -653,12 +653,12 @@ JS
 
 							// Trigger update on element changes.
 							$rules .= $fieldToWatch.".$action(function() {
-								$(this).data('userformConditions').call(this);
+								$(this).data('userformConditions".$fieldId."').call(this);
 							});\n";
 
 							// Trigger update on load (if server-side validation fails some fields will have different values than defaults).
 							$rules .= $fieldToWatchOnLoad.".each(function() {
-								$(this).data('userformConditions').call(this);
+								$(this).data('userformConditions".$fieldId."').call(this);
 							});\n";
 						}
 					}
